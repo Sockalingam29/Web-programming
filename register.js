@@ -1,6 +1,32 @@
 const form = document.getElementById("registration-form");
 const error = document.querySelector(".error");
 
+const confirmPasswordInput = document.querySelector("#confirm-password");
+const passwordInput = document.querySelector("#password");
+
+confirmPasswordInput.addEventListener("keyup", (event) => {
+  if (event.target.value === passwordInput.value) {
+    document.getElementById("password-match").innerHTML = "SUCCESS! Password matches";
+    document.getElementById("password-match").style.color = "green";
+  }
+  else{
+    document.getElementById("password-match").innerHTML = "Password does not match";
+    document.getElementById("password-match").style.color = "red";
+  }
+});
+
+passwordInput.addEventListener("keyup", (event) => {
+  if (event.target.value === confirmPasswordInput.value) {
+    document.getElementById("password-match").innerHTML = "SUCCESS! Password matches";
+    document.getElementById("password-match").style.color = "green";
+  }
+  else{
+    document.getElementById("password-match").innerHTML = "Password does not match";
+    document.getElementById("password-match").style.color = "red";
+  }
+});
+
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
