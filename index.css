@@ -1,0 +1,52 @@
+body {
+  background-color: #f2f2f2;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(37, 162, 46);
+  color: white;
+}
+
+#nav-links {
+  align-items: center;
+  display: flex;
+  list-style: none;
+}
+
+a {
+  padding: 0 20px;
+  text-decoration: none;
+  color: black;
+}
+
+.products-grid {
+  max-width: 1200px;
+  margin: auto;
+  margin: 32px 0px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 48px;
+}
+
+.product-item {
+  text-align: center;
+  border: 1px solid #f2f2f2;
+  border-radius: 20px;
+  box-shadow: 4px 4px 4px 4px #e4e2e2;
+}
+.product-item img {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+}
+
+/* Toggle button for dark/light mode */
+#dark-mode-icon {
+  width: 15px;
+  height: 15px;
+  margin: 16px;
+  cursor: pointer;
+}
