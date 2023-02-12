@@ -27,11 +27,11 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $("a").mouseenter(function () {
-    $(this).css("color", "white");
+    $(this).css("color", "#f2f2f2");
     $(this).css("font-weight", "900");
   });
   $("a").mouseleave(function () {
-    $(this).css("color", "black");
+    $(this).css("color", "white");
     $(this).css("font-weight", "500");
   });
 });
