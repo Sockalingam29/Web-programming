@@ -27,7 +27,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $("a").mouseenter(function () {
-    $(this).css("color", "#f2f2f2");
+    $(this).css("color", "#fb0");
     $(this).css("font-weight", "900");
   });
   $("a").mouseleave(function () {

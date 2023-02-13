@@ -4,6 +4,7 @@ body {
 }
 
 nav {
+  font-family:'Courier', Courier, monospace;
   display: flex;
   justify-content: space-between;
   background-color: black;
