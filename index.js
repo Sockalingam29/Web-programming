@@ -23,15 +23,21 @@ $(document).ready(function () {
       $(".product-item").css("border", "1px solid #f2f2f2");
     }
   });
-});
 
-$(document).ready(function () {
   $("a").mouseenter(function () {
-    $(this).css("color", "#f2f2f2");
+    $(this).css("color", "#fb0");
     $(this).css("font-weight", "900");
   });
   $("a").mouseleave(function () {
     $(this).css("color", "white");
     $(this).css("font-weight", "500");
   });
+
+  console.log($("body").css("background-color"))
+
+  $("div").children("h1").css("background-color","#fb0")
+
+  $("body").contextmenu(function(){
+    $("body").toggleClass("bgcolor")
+  })
 });

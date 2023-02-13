@@ -3,6 +3,9 @@ body {
   margin: 0;
 }
 
+.bgcolor{
+  background-color: rgb(226, 233, 233);
+}
 nav {
   display: flex;
   justify-content: space-between;
