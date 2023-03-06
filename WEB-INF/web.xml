@@ -1,0 +1,10 @@
+<web-app>
+    <servlet>
+        <servlet-name>SearchProductsServlet</servlet-name>
+        <servlet-class>SearchProductsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchProductsServlet</servlet-name>
+        <url-pattern>/search</url-pattern>
+    </servlet-mapping>
+</web-app>
