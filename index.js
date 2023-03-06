@@ -1,5 +1,35 @@
-function submitHandler(event){
-  event.preventDefault
+function submitHandler(event) {
+  console.log("Hello Test");
+  event.preventDefault();
+  var searchQuery = document.querySelector("input[name='searchQuery']").value;
+  var xhr = new XMLHttpRequest();
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      // process the response here
+      // console.log(xhr.responseText)
+      var response = JSON.parse(xhr.responseText);
+      console.log(response)
+      var productsList = document.createElement("ul");
+      response.forEach(function (value) {
+        var product = document.createElement("li");
+        product.textContent = value + " ";
+        productsList.appendChild(product);
+      });
+      document.getElementById("search-results").innerHTML=""
+      document.getElementById("search-results").appendChild(productsList);
+      // document.getElementsByClassName("products-grid").innerHTML = `
+      //   <div class="product-item">
+      //     <img
+      //       src="https://www.aptronixindia.com/media/catalog/product/cache/31f0162e6f7d821d2237f39577122a8a/m/b/mbp14-spacegray-select-202110-removebg-preview.png"
+      //       alt="product1" />
+      //     <h3>Apple M1 Mac</h3>
+      //     <p>Rs 91,999</p>
+      //   </div>
+      // `;
+    }
+  };
+  xhr.open("GET", "search?searchQuery=" + searchQuery);
+  xhr.send();
 }
 
 const items = document.querySelectorAll(".product-item");
@@ -8,63 +38,6 @@ items.forEach((item) => {
     item.style.cursor = "pointer";
   });
 });
-
-// $(document).ready(function() {
-//   $(document).on('submit', '#search-form', function() {
-//     // do your things
-//     return false;
-//    });
-// });
-
-// $("#search-form").submit(function (e) {
-//   console.log("Hello");
-//   e.preventDefault(); // prevent form submission and page reload
-//   var searchQuery = $("input[name='searchQuery']").val();
-//   $.ajax({
-//     url: "SearchProductsServlet",
-//     data: {
-//       searchQuery: searchQuery,
-//     },
-//     success: function (response) {
-//       // process the response here
-//       // update the DOM to display the matching products
-//       var productsList = $("<ul>");
-//       $.each(response, function (index, value) {
-//         var product = $("<li>").text(value.name + " - " + value.price);
-//         productsList.append(product);
-//       });
-//       $("#search-results").html(productsList);
-//     },
-//   });
-//   return false;
-// });
-
-// document
-//   .getElementById("search-form")
-//   .addEventListener("submit",
-
-// function submitHandler(event) {
-//   console.log("Hello");
-//   event.preventDefault(); // prevent form submission and page reload
-//   var searchQuery = document.querySelector("input[name='searchQuery']").value;
-//   var xhr = new XMLHttpRequest();
-//   xhr.onreadystatechange = function () {
-//     if (xhr.readyState === 4 && xhr.status === 200) {
-//       // process the response here
-//       var response = JSON.parse(xhr.responseText);
-//       var productsList = document.createElement("ul");
-//       response.forEach(function (value) {
-//         var product = document.createElement("li");
-//         product.textContent = value.name + " - " + value.price;
-//         productsList.appendChild(product);
-//       });
-//       document.getElementById("search-results").appendChild(productsList);
-//     }
-//   };
-//   xhr.open("GET", "SearchProductsServlet?searchQuery=" + searchQuery);
-//   xhr.send();
-// }
-
 
 $(document).ready(function () {
   $("#dark-mode-icon").click(function () {
