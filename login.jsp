@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="register.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+  </head>
+  <body>
+    <!-- <nav>
+      <h1><a href="/">The Digital Den</a></h1>
+
+      <ul id="nav-links">
+        <img
+          id="dark-mode-icon"
+          src="assets/dark-mode-icon.png"
+          alt="light-mode"
+        />
+        <li><a href="home.html">Home</a></li>
+        <li><a href="register.html">Register</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul>
+    </nav> -->
+    <%@ include file="header.jsp" %>
+    <form id="registration-form">
+      <h2>Login Page</h2>
+
+      <p class="error"></p>
+
+      <!-- EMAIL -->
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email"
+      />
+      <!-- PASSWORD -->
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Enter your password"
+      />
+      <input type="submit" value="Login" />
+    </form>
+    <script src="register.js"></script>
+  </body>
+</html>

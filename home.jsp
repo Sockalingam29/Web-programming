@@ -9,17 +9,7 @@
     <title>Home</title>
   </head>
   <body>
-    <nav>
-      <h1><a href="/">The Digital Den</a></h1>
-
-      <ul id="nav-links">
-        <img id="dark-mode-icon"src="assets/dark-mode-icon.png" alt="light-mode"/>       
-        <li><a href="home.html">Home</a></li>
-        <li><a href="register.html">Register</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="cart.html">Cart</a></li>
-      </ul>
-    </nav>
+    <%@ include file="header.jsp" %>
     <form onsubmit="event.preventDefault(); submitHandler();" >
       <input type="text" name="searchQuery">
       <button type="submit">Search</button>
