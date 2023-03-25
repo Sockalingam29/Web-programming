@@ -12,18 +12,9 @@
 </head>
 
 <body>
-  <nav>
-    <h1><a href="/">The Digital Den2</a></h1>
+  <%@ include file="header.jsp" %>
 
-    <ul id="nav-links">
-      <img id="dark-mode-icon" src="assets/dark-mode-icon.png" alt="light-mode" />
-      <li><a href="home.html">Home</a></li>
-      <li><a href="register.html">Register</a></li>
-      <li><a href="login.html">Login</a></li>
-      <li><a href="cart.html">Cart</a></li>
-    </ul>
-  </nav>
-  <form onsubmit="submitHandler(event)">
+  <form onsubmit="submitHandler(event);">
     <input type="text" name="searchQuery">
     <button type="submit">Search</button>
   </form>
@@ -65,10 +56,10 @@
       <p>Rs 3,999</p>
     </div>
 </body>
-<script src="index.js"></script>
-<!-- <script>
+<!-- <script src="index.js"></script> -->
+<script>
   function submitHandler(event) {
-    console.log("Hello");
+    console.log("Hello Here!!");
     event.preventDefault();
     var searchQuery = document.querySelector("input[name='searchQuery']").value;
     var xhr = new XMLHttpRequest();
@@ -90,6 +81,6 @@
     xhr.open("GET", "search?searchQuery=" + searchQuery);
     xhr.send();
   }
-</script> -->
+</script>
 
 </html>

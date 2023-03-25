@@ -1,7 +1,7 @@
-import jakarta.servlet.*;
+import javax.servlet.*;
 import java.io.*;
 import java.util.*;
-import jakarta.servlet.http.*;
+import javax.servlet.http.*;
 import com.google.gson.Gson;
 
 

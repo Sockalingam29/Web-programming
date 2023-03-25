@@ -1,5 +1,5 @@
 function submitHandler(event) {
-  console.log("Hello Test");
+  console.log("Hello!!!! Here");
   event.preventDefault();
   var searchQuery = document.querySelector("input[name='searchQuery']").value;
   var xhr = new XMLHttpRequest();
@@ -8,14 +8,14 @@ function submitHandler(event) {
       // process the response here
       // console.log(xhr.responseText)
       var response = JSON.parse(xhr.responseText);
-      console.log(response)
+      console.log(response);
       var productsList = document.createElement("ul");
       response.forEach(function (value) {
         var product = document.createElement("li");
         product.textContent = value + " ";
         productsList.appendChild(product);
       });
-      document.getElementById("search-results").innerHTML=""
+      document.getElementById("search-results").innerHTML = "";
       document.getElementById("search-results").appendChild(productsList);
       // document.getElementsByClassName("products-grid").innerHTML = `
       //   <div class="product-item">

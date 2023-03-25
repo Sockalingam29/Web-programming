@@ -7,5 +7,7 @@
     <link rel="stylesheet" href="cart.css" />
     <title>Cart</title>
   </head>
-  <body></body>
+  <body>
+    <%@ include file="header.jsp" %>
+  </body>
 </html>
