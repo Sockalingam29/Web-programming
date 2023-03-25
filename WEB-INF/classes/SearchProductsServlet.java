@@ -35,15 +35,27 @@ public class SearchProductsServlet extends HttpServlet {
         "Rs 3,999"
     };
 
+    class Products {
+        String img;
+        String name;
+        String price;
 
-    private List<String> searchProducts(String searchQuery) {
-        List<String> products = new ArrayList<>();
-        for (int i = 0; i < name.length; i++) {
-            if (name[i].toLowerCase().contains(searchQuery.toLowerCase())) {
-                products.add(name[i]);
+        public Products(String img, String name, String price) {
+            this.img = img;
+            this.name = name;
+            this.price = price;
+        }
+    }
+
+
+    private List<Products> searchProducts(List<Products> productsList, String searchQuery) {
+        List<Products> matchingProducts = new ArrayList<Products>();
+        for (int i = 0; i < productsList.size(); i++) {
+            if (productsList.get(i).name.toLowerCase().contains(searchQuery.toLowerCase())) {
+                matchingProducts.add(productsList.get(i));
             }
         }
-        return products;
+        return matchingProducts;
     }    
 
     public void init() throws ServletException {
@@ -53,7 +65,14 @@ public class SearchProductsServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         
         String searchQuery = request.getParameter("searchQuery");
-        List<String> products = searchProducts(searchQuery);
+        // List<String> products = searchProducts(searchQuery);
+        List<Products> productsList = new ArrayList<>();
+
+        for (int i = 0; i < name.length; i++) {
+            productsList.add(new Products(img[i], name[i], price[i]));
+        }
+
+        List<Products> products = searchProducts(productsList,searchQuery);
         
         Gson gson = new Gson();
 
