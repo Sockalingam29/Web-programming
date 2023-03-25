@@ -12,18 +12,9 @@
 </head>
 
 <body>
-  <nav>
-    <h1><a href="/">The Digital Den</a></h1>
+  <%@ include file="header.jsp" %>
 
-    <ul id="nav-links">
-      <img id="dark-mode-icon" src="assets/dark-mode-icon.png" alt="light-mode" />
-      <li><a href="home.html">Home</a></li>
-      <li><a href="register.html">Register</a></li>
-      <li><a href="login.html">Login</a></li>
-      <li><a href="cart.html">Cart</a></li>
-    </ul>
-  </nav>
-  <form onsubmit="submitHandler(event)">
+  <form onsubmit="submitHandler(event);">
     <input type="text" name="searchQuery">
     <button type="submit">Search</button>
   </form>
@@ -65,10 +56,10 @@
       <p>Rs 3,999</p>
     </div>
 </body>
-<script src="index.js"></script>
+<!-- <script src="index.js"></script> -->
 <script>
   function submitHandler(event) {
-    console.log("Hello");
+    console.log("Hello Here!!");
     event.preventDefault();
     var searchQuery = document.querySelector("input[name='searchQuery']").value;
     var xhr = new XMLHttpRequest();
@@ -78,28 +69,12 @@
         // console.log(xhr.responseText)
         var response = JSON.parse(xhr.responseText);
         console.log(response)
-        // var productsList = document.createElement("ul");
-        // response.forEach(function (value) {
-        //   var product = document.createElement("li");
-        //   product.textContent = value + " ";
-        //   productsList.appendChild(product);
-        // });
-        document.getElementsByClassName("products-grid")[0].innerHTML = "";
+        var productsList = document.createElement("ul");
         response.forEach(function (value) {
-          var product = document.createElement("div");
-          product.classList.add("product-item");
-          var img = document.createElement("img");
-          img.src = value.img;
-          var h3 = document.createElement("h3");
-          h3.textContent = value.name;
-          var p = document.createElement("p");
-          p.textContent = value.price;
-          product.appendChild(img);
-          product.appendChild(h3);
-          product.appendChild(p);
-          document.getElementsByClassName("products-grid")[0].appendChild(product);
+          var product = document.createElement("li");
+          product.textContent = value + " ";
+          productsList.appendChild(product);
         });
-        document.getElementById("search-results").innerHTML = "";
         document.getElementById("search-results").appendChild(productsList);
       }
     };
