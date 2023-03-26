@@ -18,7 +18,7 @@
 
     <form onsubmit="submitHandler(event);">
       <input type="text" name="searchQuery" />
-      <button type="submit">Search2</button>
+      <button type="submit">Search</button>
     </form>
     <div id="search-results"></div>
 
@@ -73,31 +73,8 @@
       </div>
     </div>
   </body>
-  <!-- <script src="index.js"></script> -->
+  <script src="index.js"></script>
   <script>
-    // function submitHandler(event) {
-    //   console.log("Hello Here!!");
-    //   event.preventDefault();
-    //   var searchQuery = document.querySelector("input[name='searchQuery']").value;
-    //   var xhr = new XMLHttpRequest();
-    //   xhr.onreadystatechange = function () {
-    //     if (xhr.readyState === 4 && xhr.status === 200) {
-    //       // process the response here
-    //       // console.log(xhr.responseText)
-    //       var response = JSON.parse(xhr.responseText);
-    //       console.log(response)
-    //       var productsList = document.createElement("ul");
-    //       response.forEach(function (value) {
-    //         var product = document.createElement("li");
-    //         product.textContent = value + " ";
-    //         productsList.appendChild(product);
-    //       });
-    //       document.getElementById("search-results").appendChild(productsList);
-    //     }
-    //   };
-    //   xhr.open("GET", "search?searchQuery=" + searchQuery);
-    //   xhr.send();
-    // }
     function submitHandler(event) {
       event.preventDefault();
       var searchQuery = document.querySelector(
