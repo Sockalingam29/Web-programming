@@ -50,3 +50,23 @@ a {
   height: 18px;
   cursor: pointer;
 }
+#search-form{
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+#search-form input{
+  width:60%;
+  margin: 0 10px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+#search-form button{
+  cursor: pointer;
+  width:40px;
+  border: 1px solid black;
+  border-radius: 40px;
+  height: 40px;
+}

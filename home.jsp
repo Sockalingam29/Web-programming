@@ -16,9 +16,9 @@
   <body>
     <%@ include file="header.jsp" %>
 
-    <form onsubmit="submitHandler(event);">
-      <input type="text" name="searchQuery" />
-      <button type="submit">Search</button>
+    <form id="search-form" onsubmit="submitHandler(event);">
+      <input type="text" name="searchQuery" placeholder="Search products"/>
+      <button type="submit"><img style="width:20px" src="./assets/magnifier.png"></button>
     </form>
     <div id="search-results"></div>
 
