@@ -44,7 +44,7 @@
     try{
         // 4) Import necessary Java classes
         Class.forName("com.mysql.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/webprog", "root", "Haris@123");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/webprog", "root", "");
 
 
         // 5) Insert user data into database

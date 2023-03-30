@@ -1,0 +1,5 @@
+Database  -  webprog
+Tablename -  users
+
+mysql connector .jar file included in lib
+

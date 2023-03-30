@@ -6,7 +6,7 @@
 
   try {
     Class.forName("com.mysql.cj.jdbc.Driver");
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webprog", "root", "Haris@123");
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webprog", "root", "");
     PreparedStatement ps = con.prepareStatement("SELECT * FROM users WHERE email=? AND password=?");
     ps.setString(1, email);
     ps.setString(2, password);
