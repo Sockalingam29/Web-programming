@@ -13,7 +13,7 @@
   </head>
   <body>
     <%@ include file="header.jsp" %>
-    <form id="registration-form">
+    <form id="registration-form" method="post" action="registerconnect.jsp"  >
       <h2>Registration Page</h2>
 
       <p class="error"></p>
@@ -87,11 +87,13 @@
       <label for="description">Description:</label>
       <textarea id="description" name="description"></textarea>
 
-      <label for="color">Color:</label>
-      <input type="color" />
+      <!-- <label for="color">Color:</label>
+      <input type="color" /> -->
 
       <input type="submit" value="Submit" />
     </form>
     <script src="register.js"></script>
   </body>
+  
 </html>
+

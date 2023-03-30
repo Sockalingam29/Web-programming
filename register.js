@@ -36,7 +36,10 @@ form.addEventListener("submit", (e) => {
   const confirmPassword = document.getElementById("confirm-password").value;
   const dob = document.getElementById("dob").value;
   const genderRadios = document.getElementsByName("gender");
-  const profession = document.getElementById("profession").value;
+  // const profession = document.getElementByName("profession");
+
+  // console.log({name,email,password,dob,genderRadios});//+" "+profession);
+
 
   if (name.length < 10) {
     error.textContent = "Name must be at least 10 characters";
@@ -76,12 +79,11 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
-  if (profession === "") {
-    error.textContent = "Choose a value for profession";
-    return;
-  }
+  // if (profession === "") {
+  //   error.textContent = "Choose a value for profession";
+    // return;
+  // }
 
-  // return;
   form.submit();
 });
 
