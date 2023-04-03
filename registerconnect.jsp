@@ -43,8 +43,11 @@
   else{
     try{
         // 4) Import necessary Java classes
-        Class.forName("com.mysql.jdbc.Driver");
-        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/webprog", "root", "");
+        // Class.forName("com.mysql.jdbc.Driver");
+        Class.forName("oracle.jdbc.driver.OracleDriver");   
+        // Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/webprog", "root", "");
+        Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "root", "");
+        
 
 
         // 5) Insert user data into database
@@ -77,5 +80,4 @@
     }
   }
 
-  response.sendRedirect("success.jsp");
 %>

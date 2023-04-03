@@ -15,7 +15,7 @@
 
   <body>
     <nav>
-      <h1><a href="/">The Digital Den</a></h1>
+      <h1><a href="home.jsp">The Digital Den</a></h1>
 
       <ul id="nav-links">
         <img
