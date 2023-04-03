@@ -5,8 +5,11 @@
   String password = request.getParameter("password");
 
   try {
-    Class.forName("com.mysql.cj.jdbc.Driver");
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webprog", "root", "");
+    // Class.forName("com.mysql.cj.jdbc.Driver");
+    Class.forName("oracle.jdbc.driver.OracleDriver");   
+
+    // Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/webprog", "root", "");
+    Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "oracle1");
     PreparedStatement ps = con.prepareStatement("SELECT * FROM users WHERE email=? AND password=?");
     ps.setString(1, email);
     ps.setString(2, password);

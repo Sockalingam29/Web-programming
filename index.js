@@ -34,9 +34,20 @@ function submitHandler(event) {
 function loadXMLDoc(filename)
 {
   xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      console.log("Success");
+      try {
+        xhttp.responseType = "msxml-document"
+      } catch(err) {
+        console.log(err);
+      }
+    }
+  };
   xhttp.open("GET", filename, false);
-  try {xhttp.responseType = "msxml-document"} catch(err) {} // Helping IE11
+
   xhttp.send("");
+
   return xhttp.responseXML;
 }
 

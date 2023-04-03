@@ -46,7 +46,7 @@
         // Class.forName("com.mysql.jdbc.Driver");
         Class.forName("oracle.jdbc.driver.OracleDriver");   
         // Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/webprog", "root", "");
-        Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "root", "");
+        Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "oracle1");
         
 
 
@@ -80,7 +80,7 @@
     }
 
   }
-  response.sendRedirect("success.jsp");
+  // response.sendRedirect("success.jsp");
 
 
 %>
