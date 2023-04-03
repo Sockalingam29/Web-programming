@@ -78,6 +78,9 @@
     } catch (Exception e) {
         out.println(e);
     }
+
   }
+  response.sendRedirect("success.jsp");
+
 
 %>
