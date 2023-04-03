@@ -1,43 +1,68 @@
-// function submitHandler(event) {
-//   console.log("Hello Test");
-//   event.preventDefault();
-//   var searchQuery = document.querySelector("input[name='searchQuery']").value;
-//   var xhr = new XMLHttpRequest();
-//   xhr.onreadystatechange = function () {
-//     if (xhr.readyState === 4 && xhr.status === 200) {
-//       // process the response here
-//       // console.log(xhr.responseText)
-//       var response = JSON.parse(xhr.responseText);
-//       console.log(response)
-//       var productsList = document.createElement("ul");
-//       response.forEach(function (value) {
-//         var product = document.createElement("li");
-//         product.textContent = value + " ";
-//         productsList.appendChild(product);
-//       });
-//       document.getElementById("search-results").innerHTML = ""
-//       document.getElementById("search-results").appendChild(productsList);
-//       // document.getElementsByClassName("products-grid").innerHTML = `
-//       //   <div class="product-item">
-//       //     <img
-//       //       src="https://www.aptronixindia.com/media/catalog/product/cache/31f0162e6f7d821d2237f39577122a8a/m/b/mbp14-spacegray-select-202110-removebg-preview.png"
-//       //       alt="product1" />
-//       //     <h3>Apple M1 Mac</h3>
-//       //     <p>Rs 91,999</p>
-//       //   </div>
-//       // `;
-//     }
-//   };
-//   xhr.open("GET", "search?searchQuery=" + searchQuery);
-//   xhr.send();
-// }
+function submitHandler(event) {
+  event.preventDefault();
+  var searchQuery = document.querySelector(
+    "input[name='searchQuery']"
+  ).value;
+  var xhr = new XMLHttpRequest();
+  document.getElementsByClassName("products-grid")[0].innerHTML = "";
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      var response = JSON.parse(xhr.responseText);
+      response.forEach(function (value) {
+        var product = document.createElement("div");
+        product.className = "product-item";
+        var productImage = document.createElement("img");
+        productImage.src = value.img;
+        product.appendChild(productImage);
+        var productName = document.createElement("h3");
+        productName.textContent = value.name;
+        product.appendChild(productName);
+        var productPrice = document.createElement("p");
+        productPrice.textContent = "Rs " + value.price;
+        product.appendChild(productPrice);
+        document
+          .getElementsByClassName("products-grid")[0]
+          .appendChild(product);
+      });
+      hoverCursor();
+    }
+  };
+  xhr.open("GET", "search?searchQuery=" + searchQuery);
+  xhr.send();
+}
 
-const items = document.querySelectorAll(".product-item");
-items.forEach((item) => {
-  item.addEventListener("mouseover", () => {
-    item.style.cursor = "pointer";
+function loadXMLDoc(filename)
+{
+  xhttp = new XMLHttpRequest();
+  xhttp.open("GET", filename, false);
+  try {xhttp.responseType = "msxml-document"} catch(err) {} // Helping IE11
+  xhttp.send("");
+  return xhttp.responseXML;
+}
+
+function displayResult()
+{
+  console.log("Called");
+  const xml = loadXMLDoc("products.xml");
+  const xsl = loadXMLDoc("products.xsl");
+  if (document.implementation && document.implementation.createDocument)
+    {
+    const xsltProcessor = new XSLTProcessor();
+    xsltProcessor.importStylesheet(xsl);
+    resultDocument = xsltProcessor.transformToFragment(xml, document);
+    document.getElementById("products").appendChild(resultDocument);
+    hoverCursor();
+    }
+}
+
+function hoverCursor(){
+  const items = document.querySelectorAll(".product-item");
+  items.forEach((item) => {
+    item.addEventListener("mouseover", () => {
+      item.style.cursor = "pointer";
+    });
   });
-});
+}
 
 $(document).ready(function () {
   $("#dark-mode-icon").click(function () {
