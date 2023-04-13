@@ -67,6 +67,7 @@
         if (rowsAffected == 1) {
         out.println("<h1>Registration successful.</h1>");
         out.println("<p>You will be redirected to the login page in 5 seconds.</p>");
+        response.sendRedirect("success.jsp");
         //response.setHeader("Refresh", "5; URL=login.jsp");
         } else {
         out.println("Registration failed.");
@@ -80,7 +81,6 @@
     }
 
   }
-  // response.sendRedirect("success.jsp");
 
 
 %>
